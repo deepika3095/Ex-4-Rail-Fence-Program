@@ -27,7 +27,7 @@ REG: 212223230038
 int main() {
     int i, j, len, rails, count, dir;
     char str[1000];
-    int code[100][1000] = {0};  // Initialize the entire array to 0
+    int code[100][1000] = {0};
     printf("Enter a Secret Message:\n");
     scanf("%s",str);
     len = strlen(str);
@@ -38,7 +38,6 @@ int main() {
     dir = 1;  
     for (j = 0; j < len; j++) {
         code[i][j] = str[j];
-        // Change direction if we reach the top or bottom rail
         if (i == 0) {
             dir = 1;
         } else if (i == rails - 1) {
@@ -47,7 +46,6 @@ int main() {
         i += dir;
     }
     printf("Encrypted Message:\n");
-    // Print the encrypted message
     for (i = 0; i < rails; i++) {
         for (j = 0; j < len; j++) {
             if (code[i][j] != 0) {
